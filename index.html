@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabin Camp Resort | Luxury Staycation</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #11172b;
+      --panel-2: #151d34;
+      --text: #f4f1ea;
+      --muted: #b7bfd3;
+      --gold: #d7b56d;
+      --gold-2: #f1d79c;
+      --line: rgba(255,255,255,0.08);
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --max: 1180px;
+    }
+
+.section-head {
+  margin-bottom: 28px;
+}
+
+
+.section-head h2 {
+  margin: 6px 0 10px;
+  line-height: 1.25;
+}
+
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 800px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: 0.3px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(215,181,109,.11), transparent 35%),
+        linear-gradient(180deg, #060915 0%, var(--bg) 35%, #080b14 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding-bottom: 80px; /* Space for sticky bar */
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 10, 19, .72);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 42px; height: 42px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--gold), #8f6b2f);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+    }
+    .brand strong { display: block; font-family: Georgia, "Times New Roman", serif; letter-spacing: .3px; }
+    .brand span { display: block; color: var(--muted); font-size: .88rem; }
+    .nav { display: flex; gap: 18px; color: var(--muted); font-size: .95rem; flex-wrap: wrap; }
+    .nav a:hover { color: var(--text); }
+
+    /* Hero Section */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(215,181,109,.12);
+  border: 1px solid rgba(215,181,109,.18);
+  color: var(--gold-2);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+
+
+.pill {
+    /* Centering Logic */
+    display: block;       /* Allows auto margins to work */
+    margin: 20px auto;    /* 20px space top/bottom, 'auto' centers it horizontally */
+    
+    /* Interactive Logic */
+    cursor: pointer;      /* Changes cursor to the 'hand/pointer' icon */
+    
+    /* Visual Polish */
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Hover Effect for that 'Premium' feel */
+.pill:hover {
+    transform: translateY(-2px); /* Lifts slightly */
+    filter: brightness(1.1);      /* Brightens slightly */
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3); /* Soft glow */
+}
+
+  /* ✅ ADD THIS */
+  margin-bottom: 12px;
+}
+ .gallery {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .gallery-track {
+      display: flex;
+      transition: transform .45s ease;
+      will-change: transform;
+    }
+
+.slide {
+    min-width: 100%;
+    /* Changed from 16/9 to a slimmer 21/9 for a cinematic look */
+    aspect-ratio: 16 / 9; 
+    max-height: 700px; /* Limits how tall the gallery can get on big screens */
+    position: relative;
+    background: #101522;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+    .slide img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .92;
+    }
+    .slide::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,9,21,0.02) 0%, rgba(6,9,21,.42) 100%);
+      pointer-events: none;
+    }
+    .gallery-ui {
+      position: absolute; inset: auto 18px 18px 18px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      z-index: 2;
+    }
+    .gallery-dots { display: flex; gap: 8px; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 999px;
+      border: 0; background: rgba(255,255,255,.35); cursor: pointer;
+    }
+    .dot.active { background: var(--gold); }
+    .arrows { display: flex; gap: 10px; }
+    .arrow {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(6,9,21,.55);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.2rem;
+      backdrop-filter: blur(10px);
+    }
+   .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .card {
+      padding: 24px;
+    }
+    .guest-favorite {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(215,181,109,.10);
+      border: 1px solid rgba(215,181,109,.18);
+      margin-bottom: 18px;
+    }
+    .gf-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      font-weight: 700;
+    }
+    .review-breakdown { display: grid; gap: 10px; margin-top: 18px; }
+    .row {
+      display: grid; grid-template-columns: 140px 1fr 48px;
+      align-items: center; gap: 12px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .bar {
+      height: 10px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden;
+    }
+    .fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--gold), var(--gold-2)); }
+    .rating-bubbles {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 18px;
+    }
+    .bubble {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .bubble strong { display: block; font-size: 1.15rem; margin-bottom: 4px; }
+    .bubble span { color: var(--muted); font-size: .9rem; }
+
+    .steps {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;
+    }
+    .step {
+      padding: 22px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+    }
+    .step .num {
+      display: inline-flex; width: 34px; height: 34px; align-items: center; justify-content: center;
+      border-radius: 50%; background: rgba(215,181,109,.14); color: var(--gold-2); font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .step p { color: var(--muted); margin: 10px 0 0; }
+
+    .offers {
+      display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px;
+    }
+    .offer {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+.offer {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+
+  /* ✅ performance boost */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.offer img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+
+  /* ✅ smoother + faster */
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+.offer:hover img {
+  transform: scale(1.04); /* ✅ LOWER = no lag */
+}
+.offer img {
+  background: #0b1020; /* fallback while loading */
+}
+
+.offer:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  transition: .25s ease;
+}
+
+    .offer strong { display:block; padding:12px 14px 0; }
+    .offer span { display:block; padding:6px 14px 14px; color:var(--muted); font-size:.92rem;}
+    .offer .icon { font-size: 1.5rem; margin-bottom: 10px; }
+    .offer strong { display: block; }
+    .offer span { color: var(--muted); font-size: .92rem; }
+
+    .know-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;
+    }
+    .know-card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    .know-card li { margin: 8px 0; }
+
+.mapbox {
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--panel);
+    }
+    .map-visual {
+      min-height: 360px;
+      position: relative;
+      background:
+        radial-gradient(circle at 30% 35%, rgba(215,181,109,.24), transparent 12%),
+        radial-gradient(circle at 65% 50%, rgba(255,255,255,.08), transparent 10%),
+        linear-gradient(180deg, #10182d 0%, #0a1020 100%);
+    }
+    .map-visual::before {
+      content: "";
+      position: absolute; inset: 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(255,255,255,.08) 50%, transparent 51%),
+        linear-gradient(transparent 49%, rgba(255,255,255,.08) 50%, transparent 51%);
+      background-size: 70px 70px;
+      opacity: .45;
+    }
+    .map-pin {
+      position: absolute; left: 54%; top: 43%; transform: translate(-50%, -50%);
+      background: var(--gold);
+      color: #151010;
+      padding: 12px 14px;
+      border-radius: 18px 18px 18px 4px;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+    .map-caption {
+      padding: 18px 22px 22px;
+      display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+    }
+    .map-caption p { margin: 0; color: var(--muted); }
+
+    .testimonials {
+      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;
+    }
+    .testimonial {
+      padding: 22px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    }
+    .testimonial .stars { color: var(--gold-2); letter-spacing: 2px; }
+    .testimonial p { color: var(--muted); margin: 12px 0; }
+    .testimonial strong { display: block; }
+    .testimonial span { color: #8d96aa; font-size: .92rem; }
+
+    .footer {
+      margin-top: 20px;
+      padding: 32px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr .9fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .footer h3 { font-size: 1.2rem; color: var(--text); }
+    .footer a { display: block; margin: 10px 0; color: var(--muted); }
+    .footer a:hover { color: var(--text); }
+
+
+/* THE BOTTOM BAR FIX */
+.book-now-footer {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80px;
+    background: #0d1117;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 99999; /* Higher than everything else */
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+}
+
+.footer-price-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-price-group .price { font-weight: 800; color: #fff; }
+.footer-price-group .sub { font-size: 12px; color: var(--muted); }
+
+
+
+
+    .small { font-size: .9rem; color: #8d96aa; }
+    .divider { height: 1px; background: var(--line); margin: 14px 0; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .grid-2, .steps, .offers, .know-grid, .testimonials, .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .hero-stats { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .rating-bubbles { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .row { grid-template-columns: 1fr; gap: 6px; }
+      .section-head { flex-direction: column; align-items: start; }
+      .nav { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero-copy, .card, .booking { padding: 20px; }
+      h1 { font-size: clamp(2rem, 11vw, 3.2rem); }
+      .hero-stats, .rating-bubbles { grid-template-columns: 1fr; }
+      .gallery-ui { inset: auto 12px 12px 12px; }
+      .arrow { width: 40px; height: 40px; }
+    }
+ 
+
+/* Update your hero content container */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the child elements (tags, headings) */
+    text-align: center;   /* Centers the text lines within the headings */
+    justify-content: center;
+    max-width: 900px;     /* Keeps the lines from getting too wide/unreadable */
+    margin: 0 auto;       /* Centers the entire block on the screen */
+    padding: 0 20px;
+}
+/* Optional: Add a bit of extra letter-spacing to the sub-text for that premium feel */
+.hero-content p {
+    max-width: 600px;     /* Forces the description to wrap elegantly */
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(6,9,21,.4), rgba(6,9,21,.7)),
+        url('https://a0.muscache.com/im/pictures/miso/Hosting-1021308032742624947/original/99ee5298-0960-42dc-87f1-1d3d071bb901.jpeg') center/cover no-repeat;
+      z-index: -1;
+    }
+
+/* Ensure the container doesn't squeeze the boxes */
+.hero-copy {
+  width: 100%;
+  max-width: 1000px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Smaller, cleaner sub-text */
+.hero-copy p {
+  font-size: 0.9rem;      /* Reduced from 0.95rem or 1rem */
+  line-height: 1.5;
+  max-width: 800px;       /* Keeps the text block narrow and centered */
+  margin: 0 auto 30px;    /* Centers the paragraph and adds space below */
+  color: var(--muted);
+  opacity: 0.85;          /* Slightly softer for that dark luxury vibe */
+}
+
+/* Force 4 items into one row */
+.hero-stats {
+  margin-top: 40px;
+  display: flex !important;   /* Force Flexbox */
+  flex-direction: row;        /* Horizontal */
+  flex-wrap: nowrap;          /* STRONGLY prevent jumping to 2nd line */
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+}
+
+.hero {
+    position: relative;
+    /* Changed from a fixed height to a minimum height */
+    min-height: 80vh; 
+    display: flex;
+    align-items: center;
+    padding: 100px 0; /* Adds breathing room so text doesn't hit the edges */
+    overflow: hidden;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+/* Ensure the background stays behind and doesn't affect flow */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+/* Make sure each box shrinks to fit */
+.stat {
+  flex: 1;                    /* Equal width for all 4 */
+  min-width: 0;               /* Critical fix for flex items */
+  padding: 15px 5px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* IMPORTANT: Search your code for this media query and REMOVE the hero-stats line */
+@media (max-width: 980px) {
+  /* REMOVE: .hero-stats { grid-template-columns: 1fr; } <--- DELETE THIS LINE */
+}
+
+
+/* 4. Keep it responsive (stack them only on small phones) */
+@media (max-width: 600px) {
+    .hero-stats {
+        flex-wrap: wrap;   /* Let them stack on small mobile screens */
+    }
+    .stat {
+        flex: 1 1 calc(50% - 15px); /* 2x2 on mobile */
+    }
+}
+
+
+/* Smaller, more elegant H1 */
+h1 {
+  /* clamp(MIN, PREFERRED, MAX) */
+  font-size: clamp(2rem, 4vw, 3.2rem); 
+  font-family: Georgia, serif;
+  line-height: 1.15;
+  margin: 15px 0;
+  letter-spacing: -0.5px; /* Tighter spacing looks more high-fashion */
+}
+
+    .eyebrow {
+      display: inline-flex; gap: 8px; align-items: center;
+      padding: 8px 16px; border-radius: 99px;
+      background: rgba(215,181,109,.12);
+      color: var(--gold-2);
+      font-size: .85rem;
+      border: 1px solid rgba(215,181,109,.2);
+    }
+    .hero-stats {
+      margin-top: 30px;
+      display: grid;
+
+      gap: 15px;
+    }
+    .stat {
+      padding: 15px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+    }
+    .stat strong { display: block; font-size: 1.2rem; color: var(--gold); }
+    .stat span { font-size: 0.85rem; color: var(--muted); }
+
+    /* Booking Form */
+    .booking-card {
+      background: var(--panel);
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .calendar-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 15px;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+    .calendar-day {
+      padding: 10px 5px;
+      text-align: center;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .calendar-day:hover { background: var(--panel-2); }
+    .calendar-day.selected { background: var(--gold); color: #000; font-weight: bold; }
+
+
+   /* Booking footer */
+
+/* 2. Style the booking card to be centered with a clean width */
+.card.booking {
+    background: #161b22; /* Slightly lighter than the background to pop */
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    padding: 48px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+   .booking {
+      padding: 22px;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .booking h3 { font-size: 1.55rem; }
+    .booking .price {
+      color: var(--gold-2);
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Side-by-side for dates */
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.field {
+    width: 100%;            /* Makes inputs consistent */
+    max-width: 400px;       /* Keeps inputs looking elegant */
+    text-align: left;       /* Labels usually look better left-aligned */
+}
+
+/* Make textarea and guests take full width */
+.field.full { grid-column: span 2; }
+
+.field label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: var(--muted);
+}
+
+.field input, .field select, .field textarea {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+    .field input::placeholder, .field textarea::placeholder { color: #7f889f; }
+    .booking .btn { width: 100%; margin-top: 4px; }
+    .note {
+      color: var(--muted);
+      font-size: .9rem;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+
+
+
+/* High-conversion WhatsApp Button */
+.btn.whatsapp {
+    background: transparent;
+    border: 1px solid #25D366;
+    color: #25D366;
+    margin-top: 12px;
+}
+.btn.whatsapp:hover { background: rgba(37, 211, 102, 0.1); }
+
+
+
+
+    /* Offers Grid */
+    .offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .offer {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .offer:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .offer img { width: 100%; height: 160px; object-fit: cover; }
+    .offer-content { padding: 20px; }
+    .offer strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+    .offer span { font-size: 0.9rem; color: var(--muted); }
+
+    /* Sticky Bar */
+    #stickyBar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #0b1020; border-top: 1px solid var(--line);
+      padding: 12px 20px; display: flex; justify-content: space-between;
+      align-items: center; z-index: 1000;
+      transform: translateY(100%); transition: 0.4s;
+    }
+    #stickyBar.visible { transform: translateY(0); }
+
+    /* Mobile */
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .nav { display: none; }
+    }
+
+
+/* Persistent Footer Bar */
+.book-now-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(13, 17, 23, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+    padding: 15px 5% 30px; /* Extra bottom padding for mobile safe areas */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999 !important; /* Forces it to the very top */
+}
+
+.contact-direct {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.contact-direct a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.booking-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Split layout */
+    gap: 60px;
+    background: #161b22;
+    padding: 60px;
+    border-radius: 24px;
+    border-top: 8px solid #ff; /* Use your Firetouch red here */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #0d1117;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+}
+
+.contact-item.whatsapp { border-left-color: #25D366; }
+.contact-item.phone { border-left-color: #ff4d4d; }
+
+.contact-item .label { display: block; font-size: 10px; text-transform: uppercase; color: var(--muted); }
+.contact-item .value { font-weight: 800; color: #fff; font-size: 1.1rem; }
+
+/* Mobile Responsiveness */
+@media (max-width: 980px) {
+    .booking-grid-wrapper {
+        grid-template-columns: 1fr;
+        padding: 30px;
+    }
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+   
+<div class="brand-logo">
+    <div class="logo-icon">
+        <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10L90 70H10L50 10Z" stroke="#d7b56d" stroke-width="4"/>
+            <path d="M50 30L75 70H25L50 30Z" stroke="white" stroke-width="3" opacity="0.6"/>
+        </svg>
+    </div>
+    <div class="logo-text">
+        <span class="main-name">Tralala</span>
+        <span class="category">Camp Resort</span>
+        <span class="slogan">Budget staycation escape</span>
+    </div>
+</div>
+
+<style>
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Inter', sans-serif; /* Keep consistency with your site */
+}
+
+.logo-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text .main-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px; /* Tighter for a modern look */
+    line-height: 1;
+}
+
+.logo-text .category {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #d7b56d; /* Your gold accent color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2px;
+}
+
+.logo-text .slogan {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 4px;
+}
+</style>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#offers">Offers</a>
+        <a href="#map">Map</a>
+        <a href="#book" class="pill">Book now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">★ Guest favorite • Top 10% of stays</div>
+            <h1>Trade city stress for a 🏠 cabins or ⛺ tents escape that actually resets you.</h1>
+            <p>A dark-budget camp resort for travelers who want cool air, quiet mornings, and bonfire nights.</p>
+            <div class="hero-stats">
+              <div class="stat"><strong>5.0</strong><span>Guest rating</span></div>
+              <div class="stat"><strong>96%</strong><span>5-star reviews</span></div>
+              <div class="stat"><strong>8+</strong><span>Outdoor activities</span></div>
+              <div class="stat"><strong>24/7</strong><span>Booking support</span></div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+
+   <section class="section" id="gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="pill">Sliding gallery</div>
+            <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">A stay that looks as good as it feels</h2>
+            <p>Swipe through the spaces guests book for calm mornings, adventure afternoons, and slow golden-hour nights.</p>
+          </div>
+        </div>
+        <div class="gallery" aria-label="Photo gallery slider">
+          <div class="gallery-track" id="track">
+
+            <div class="slide"><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-871412734935173328/original/1e154097-2d0d-42f8-af5f-4fb551b90af7.jpeg" alt="Cabin & Tent" /></div>
+<div class="slide"><img src="https://theoutdoorinsider.com/wp-content/uploads/2023/06/Winter-Camping-1024x683.webp" alt="Camping1" /></div>
+            <div class="slide"><img src="https://www.shutterstock.com/image-photo/tourist-relaxing-while-camping-sunrise-600nw-2320442971.jpg" alt="Camping2" /></div>
+            <div class="slide"><img src="https://i.ytimg.com/vi/IeBQd-rFWj8/maxresdefault.jpg" alt="Camping & Bonfire" /></div>
+            <div class="slide"><img src="https://media.glampinghub.com/CACHE/images/accommodations/05-glamping-a39a7733-908b-41c6-b1e7-0eac0ba7bf94-glamping-3e9d732a-d288-40ae-af8c-42fad082b0b8/0ae5f84a66b15be26f073ed679c2edc0.jpg" alt="Cabin & Tent" /></div>
+<div class="slide"><img src="https://www.corsurf.com/cdn/shop/articles/coastal_camping.png?v=1696370531" alt="outdoor relaxation at night" /></div>
+<div class="slide"><img src="https://preview.redd.it/milky-way-season-sharing-my-photos-motocamping-beside-a-v0-edopbqnee2ma1.jpg?width=3840&format=pjpg&auto=webp&s=2b7c221e7150ade6e9ee8e51507f23db8417b7ca" alt="Camping1" /></div>
+<div class="slide"><img src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t39.30808-6/504871364_1168628748638063_1613440931758316270_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeG34P_J43FhI1i1xm0cQKthHrjADB3AIXweuMAMHcAhfBS7JHe6Vfaquq_-jGphygU&_nc_ohc=wao2cthReKEQ7kNvwHb5vTN&_nc_oc=AdpJyu9qgn_ROX8n-8cKKMPQH4RNUrf1EFvZKuxMdIbXKt-WbStARw6D0dRAxf921-Q&_nc_zt=23&_nc_ht=scontent.fmnl30-3.fna&_nc_gid=CEuNGC3ghmM5a785tUGUSA&_nc_ss=7a3a8&oh=00_Af3IPaXDrmZFBVqEQuV7JQCWq05XvDE2181D7ihkmonBXw&oe=69D66EF7" alt="Camping1" /></div>
+<div class="slide"><img src="https://preview.redd.it/milky-way-season-sharing-my-photos-motocamping-beside-a-v0-ang6ivnee2ma1.jpg?width=1080&crop=smart&auto=webp&s=5596048fc3a5841939680ad577848b6360a919f2" alt="Camping and cofee" /></div>
+<div class="slide"><img src="https://hikeandbackpack.com/wp-content/uploads/2022/12/people-4817872_1280-800x500.jpg" alt="Camping1" /></div>
+            <div class="slide"><img src="https://thegeekycamper.com/wp-content/uploads/2020/11/Choose-A-4-Season-Tent-scaled.jpg" alt="Camping 7" /></div>
+            <div class="slide"><img src="https://cdn.snowys.com.au/blog/wp-content/uploads/2023/11/Body-1-1.jpg" alt="Camping and fire" /></div>
+
+            <div class="slide"><img src="https://localtravelscom.wordpress.com/wp-content/uploads/2022/03/img_3003-1.jpg" alt="Cabin & Tent" /></div>
+            <div class="slide"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1000/v1659023345/blog/ijghsgvve0ju2khw46mp.jpg" alt="Cabin & Tent" /></div>
+                          <div class="slide"><img src="https://img.freepik.com/premium-photo/nightfall-nook-camping-tent-photo_960396-20289.jpg" alt="Camping" /></div>
+          <div class="slide"><img src="https://a0.muscache.com/im/pictures/miso/Hosting-1110459659420897531/original/42772596-1c2e-4a9a-a80f-1aeaf90ea694.jpeg?im_w=720" alt="Cabin & Tent" /></div>
+            <div class="slide"><img src="https://img.freepik.com/premium-photo/highend-glamping-site-with-canvas-tents-wooden-deck-seating-areas-surrounded-by-green-grass-set_1130306-4020.jpg?w=2000" alt="Cabin & Tent" /></div>
+
+
+
+
+          </div>
+          <div class="gallery-ui">
+            <div class="gallery-dots" id="dots" aria-label="Gallery navigation"></div>
+            <div class="arrows">
+              <button class="arrow" id="prev" aria-label="Previous photo">‹</button>
+              <button class="arrow" id="next" aria-label="Next photo">›</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+   <section class="section" id="reviews">
+      <div class="wrap grid-2">
+        <div class="card">
+          <div class="guest-favorite">
+            <div class="gf-badge">★ Guest favorite</div>
+            <div>
+              <strong>This home is in the top 10% of eligible listings.</strong>
+              <div class="small">Based on ratings, reviews, and reliability.</div>
+            </div>
+          </div>
+          <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Review summary</h2>
+          <p class="small">How reviews work</p>
+          <div class="review-breakdown">
+            <div class="row"><span>5 stars</span><div class="bar"><div class="fill" style="width:96%"></div></div><strong>96%</strong></div>
+            <div class="row"><span>4 stars</span><div class="bar"><div class="fill" style="width:4%"></div></div><strong>4%</strong></div>
+            <div class="row"><span>3 stars</span><div class="bar"><div class="fill" style="width:0%"></div></div><strong>0%</strong></div>
+            <div class="row"><span>2 stars</span><div class="bar"><div class="fill" style="width:0%"></div></div><strong>0%</strong></div>
+            <div class="row"><span>1 star</span><div class="bar"><div class="fill" style="width:0%"></div></div><strong>0%</strong></div>
+          </div>
+          <div class="rating-bubbles">
+            <div class="bubble"><strong>5.0</strong><span>Cleanliness</span></div>
+            <div class="bubble"><strong>5.0</strong><span>Accuracy</span></div>
+            <div class="bubble"><strong>5.0</strong><span>Check-in</span></div>
+            <div class="bubble"><strong>5.0</strong><span>Communication</span></div>
+            <div class="bubble"><strong>4.9</strong><span>Location</span></div>
+            <div class="bubble"><strong>4.9</strong><span>Value</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">What guests say</h2>
+          <p class="small">Authentic-style review cards for social proof.</p>
+          <div class="divider"></div>
+          <div class="testimonial" style="background:transparent; border:none; padding:0; box-shadow:none;">
+            <div class="stars">★★★★★</div>
+            <p>“We arrived exhausted from city life and left feeling like we had a full reset. The cabin, bonfire, and coffee bar made it easy to slow down.”</p>
+            <strong>Angela M.</strong><span>Weekend stay • Couple retreat</span>
+          </div>
+          <div class="divider"></div>
+          <div class="testimonial" style="background:transparent; border:none; padding:0; box-shadow:none;">
+            <div class="stars">★★★★★</div>
+            <p>“The activities kept our group busy without feeling rushed — waterfall swim, trekking, billiards, and the zip line were the highlight.”</p>
+            <strong>Mark D.</strong><span>Group booking • 4 nights</span>
+          </div>
+          <div class="divider"></div>
+          <div class="testimonial" style="background:transparent; border:none; padding:0; box-shadow:none;">
+            <div class="stars">★★★★★</div>
+            <p>“Everything felt premium but relaxed. The place is beautiful, easy to book, and exactly what we needed to escape the noise.”</p>
+            <strong>Jessa T.</strong><span>Family stay • Holiday break</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="pill">How it works</div>
+            <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Three simple steps to your reset</h2>
+            <p>Make booking feel effortless, then focus on the experience instead of the logistics.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <h3>Choose your dates</h3>
+            <p>Pick a weekend, holiday, or weekday escape and reserve the cabin before your preferred dates fill up.</p>
+          </div>
+          <div class="step">
+            <div class="num">2</div>
+            <h3>Plan your unwind</h3>
+            <p>Add your preferences: bonfire setup, adventure activities, romantic setup, or group itinerary.</p>
+          </div>
+          <div class="step">
+            <div class="num">3</div>
+            <h3>Arrive and recharge</h3>
+            <p>Check in, breathe deeper, and enjoy a complete staycation with nature, comfort, and premium touches.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="offers">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="pill">What this place offers</div>
+            <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Designed for rest, adventure, and memorable moments</h2>
+            <p>Use this section to highlight the most desirable features in a scan-friendly format.</p>
+          </div>
+        </div>
+        <div class="offers">
+          <div class="offer">
+            <img src="2.avif" alt="Cabin">
+            <div class="offer-content">
+              <strong>Scenic cabin stay</strong>
+              <span>Relaxing interior with a warm, upscale mountain-lodge feel.</span>
+            </div>
+          </div>
+          <div class="offer">
+            <img src="https://cdn.snowys.com.au/blog/wp-content/uploads/2023/11/Body-1-1.jpg" alt="Bonfire">
+            <div class="offer-content">
+              <strong>Bonfire nights</strong>
+              <span>Perfect for stories, snacks, and slow conversations.</span>
+            </div>
+          </div>
+          <div class="offer">     <img src="https://i.pinimg.com/736x/5a/e0/a7/5ae0a77a9ff3c6e771c90de929a97500.jpg" alt="Coffee">           <div class="offer-content">              <strong>Mini coffee bar</strong>              <span>Morning espresso before the activities start.</span>
+            </div>
+          </div>
+
+
+          <div class="offer"><img src="https://images.saymedia-content.com/.image/t_share/MTc0NDYxMTM1ODkzMTEyMTY4/dart-games.jpg"/><div class="offer-content">              <strong>Games corner</strong><span>Dart, billiards, pool, and hangout spots for every type of guest.</span></div>       </div>
+          <div class="offer"><img src="https://tse2.mm.bing.net/th/id/OIP.EX9XEF-JJgiip87lNo6bswHaLM?pid=ImgDet&w=474&h=716&rs=1&o=7&rm=3"/><div class="offer-content">              <strong>Wall climbing</strong><span>For guests who want a little challenge and a lot of fun.</span></div>       </div>
+          <div class="offer"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_680/v1606438807/blog/jm1omczfx0notmiogl8l.jpg"/><div class="offer-content">              <strong>Waterfall swim</strong><span>Cool off in a refreshing natural setting that feels like a real escape.</span></div>       </div>
+          <div class="offer"><img src="https://mautourco.com/wp-content/uploads/2023/09/Zipline-Bicycle-5-1920-x-1280.jpg"/><div class="offer-content">              <strong>Bike + zip line</strong><span>Add a thrill to the trip with outdoor features that keep the energy high.</span></div>       </div>
+<div class="offer"><img src="https://img.philkotse.com/2019/04/22/b7Fg1q9w/ilocos-roadtrip-kabigan-falls-ece2.jpg"/><div class="offer-content">  <strong>Trekking trails</strong><span>Outdoor paths for guests who want movement, scenery, and fresh air.</span>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="map">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="pill">Where you’ll be</div>
+            <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">A private nature setting with easy access to adventure</h2>
+            <p>Use this map area to show the resort’s exact location, nearby landmarks, and travel convenience.</p>
+          </div>
+        </div>
+        <div class="mapbox">
+          <div class="map-visual">
+            <div class="map-pin">Resort Location</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12005.10304266916!2d121.43886640023538!3d14.528753973494272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ed5181049485%3A0xbf6abff10bcc416e!2sParang%20Ng%20Buho%2C%20Santa%20Maria%2C%20Laguna!5e1!3m2!1sen!2sph!4v1775265331269!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="map-caption">
+            <p><strong style="color:var(--text)">Nearby:</strong> waterfalls, trail access, view decks, coffee stops, and local attractions.</p>
+            <a class="pill" href="#book">Get directions</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="pill">Things to know</div>
+            <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Clear expectations, no surprises</h2>
+            <p>Keep this section concise so guests can confidently decide before they inquire.</p>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>Check-in & stay</h3>
+            <ul>
+              <li>Flexible arrival window after confirmation</li>
+              <li>Self-check-in guidance available</li>
+              <li>Quiet hours in the evening for comfort</li>
+            </ul>
+          </div>
+          <div class="step">
+            <h3>Guest fit</h3>
+            <ul>
+              <li>Ideal for couples, families, barkadas, and retreats</li>
+              <li>Adventure-friendly but still relaxing</li>
+              <li>Best for guests who want a nature escape</li>
+            </ul>
+          </div>
+          <div class="step">
+            <h3>House rules</h3>
+            <ul>
+              <li>Treat the property and amenities with care</li>
+              <li>Respect the landscape and shared spaces</li>
+              <li>Follow safety guidance for outdoor activities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  <section id="book" class="py-16">
+    <div class="wrap">
+        <div class="booking-grid-wrapper">
+            
+            <div class="contact-info-side">
+                              <h2 style="margin-top:14px;">Reserve your unwind weekend</h2>
+              <div class="price"><h3>Starts From ₱500/night</h3></div>
+              <div class="small">Best for couples, families, barkadas, and corporate resets.</div>
+                <p class="p-muted">Reach out via our direct lines or fill out the details for a precise quote. We're ready to assist with your staycation requirements.</p>
+
+                <div class="contact-cards-stack">
+                    <a href="https://wa.me/63987654321" target="_blank" class="contact-item whatsapp">
+                        <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <span class="label">Fastest Response</span>
+                            <span class="value">+63 987654321</span>
+                        </div>
+                    </a>
+
+                    <a href="tel:+63987654321" class="contact-item phone">
+                        <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <span class="label">Direct Line</span>
+                            <span class="value">0987654321</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <form id="contact-form" action="https://formspree.io/f/mbdznkd" method="POST" class="form-grid">
+                <div class="field">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="field">
+                    <label>Preferred Experience</label>
+                    <select name="stay_type" required>
+                        <option value="" disabled selected>Choose your reset...</option>
+                        <option value="Couple Retreat">Couple Retreat (2 Guests)</option>
+                        <option value="Family Stay">Family Stay (4-6 Guests)</option>
+                        <option value="Barkada Escape">Barkada Escape (Group)</option>
+                        <option value="MotoCamping">MotoCamping(Solo/2 Guests)</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <div class="field-group">
+                        <label>Check-in Date</label>
+                        <input type="date" name="checkin" required>
+                    </div>
+                    <div class="field">
+                        <label>Preferred Time</label>
+                        <input type="time" name="arrival_time">
+                    </div>
+                </div>
+   <div class="field">
+                        <label>Special request</label>
+                <textarea name="message" rows="3" placeholder="Destination and special requests (e.g. Birthday setup, Bonfire nights)..." required></textarea>
+                </div>
+              <button type="submit" class="pill" style="grid-column: span 2; width: max-content; padding: 12px 40px;">    Confirm Request
+</button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<div class="book-now-footer">
+    <div class="footer-price-group">
+        <span class="price">₱500/night</span>
+        <span class="sub">Only 2 slots left this weekend</span>
+    </div>
+    <a href="#book" class="pill" style="padding: 12px 24px;">Book Now</a>
+</div>
+
+
+
+  </main>
+
+
+<footer class="sticky-booking-bar">
+ <div id="stickyBar" style="position:fixed;bottom:0;left:0;right:0;background:#0b1020;border-top:1px solid rgba(255,255,255,.1);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;z-index:999;transform:translateY(100%);transition:.4s;">
+  <div>
+    <strong style="color:#fff">₱8,500/night</strong>
+    <div style="font-size:.8rem;color:#bbb">Only 2 slots left this weekend</div>
+  </div>
+  <a href="#book" class="btn primary">Book Now</a>
+</div>
+</footer>
+
+<style>
+/* Spacing fix for sections */
+section {
+    padding: 30px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sticky-booking-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #333;
+    padding: 15px 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+/* Add your Japanese sleeve-inspired minimalist dark theme colors here */
+</style>
+
+<footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <h3>Cabin Camp Resort</h3>
+        <p>A budget staycation landing page built to convert city-stressed travelers into booked guests.</p>
+    
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#gallery">Gallery</a>
+        <a href="#reviews">Guest favorite</a>
+        <a href="#offers">What this place offers</a>
+        <a href="#map">Where you’ll be</a>
+      </div>
+      <div>
+        <h3>Book</h3>
+        <a href="#book">Availability form</a>
+        <a href="#">Contact host</a>
+        <a href="#">Policies</a>
+        <a href="#">Instagram / Facebook</a>
+
+<div class="flex justify-center space-x-6 mb-8 text-2xl">
+    <a href="https://facebook.com/firetouchtransport" target="_blank" class="text-slate-400 hover:text-red-600 transition-colors duration-300">
+        <i class="fab fa-facebook"></i>
+    </a>
+    
+    <a href="https://wa.me/639499900491" target="_blank" class="text-slate-400 hover:text-green-500 transition-colors duration-300">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script>
+    // Gallery Logic
+    const track = document.getElementById('track');
+    const slides = Array.from(track.children);
+    const dotsWrap = document.getElementById('dots');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    let current = 0;
+
+    function renderDots() {
+      dotsWrap.innerHTML = '';
+      slides.forEach((_, index) => {
+        const b = document.createElement('button');
+        b.className = 'dot' + (index === current ? ' active' : '');
+        b.addEventListener('click', () => goTo(index));
+        dotsWrap.appendChild(b);
+      });
+    }
+
+    function goTo(index) {
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      renderDots();
+    }
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+    // Simple Calendar Generator
+    const grid = document.getElementById('calendarGrid');
+    for(let i=1; i<=30; i++) {
+      const day = document.createElement('div');
+      day.className = 'calendar-day';
+      day.textContent = i;
+      day.onclick = function() {
+        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+        this.classList.add('selected');
+      };
+      grid.appendChild(day);
+    }
+
+    // Sticky Bar Visibility
+    const stickyBar = document.getElementById('stickyBar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderDots();
+});
+
+  </script>
+
+   <a href="https://wa.me/639499900491" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+</body>
+</html>
