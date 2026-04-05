@@ -69,28 +69,51 @@ body {
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
 
 
+.brand-logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon svg { width: 40px; height: 40px; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-text .main-name { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .logo-text .category { font-size: 0.7rem; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
+.logo-text .slogan {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
       width: 42px; height: 42px; border-radius: 14px;
       background: linear-gradient(135deg, var(--gold), #8f6b2f);
       box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
     }
+
     .brand strong { display: block; font-family: Georgia, "Times New Roman", serif; letter-spacing: .3px; }
     .brand span { display: block; color: var(--muted); font-size: .88rem; }
-    .nav { display: flex; gap: 18px; color: var(--muted); font-size: .95rem; flex-wrap: wrap; }
-    .nav a:hover { color: var(--text); }
+ .nav { display: flex; gap: 24px; align-items: center; }
+    .nav a { color: var(--muted); font-size: 0.9rem; transition: 0.3s; }
+    .nav a:hover { color: var(--gold); }
+
+
 
     /* Hero Section */
 .pill {
   display: inline-flex;
+  padding: 8px 16px;
+background: rgba(215,181,109,.1);
+border: 1px solid rgba(215,181,109,.2);
+  color: var(--gold-2);
+  border-radius: 99px;
+  font-size: 0.8rem;
+text-transform: uppercase;
+      letter-spacing: 1px;
   align-items: center;
   gap: 8px;
-  background: rgba(215,181,109,.12);
-  border: 1px solid rgba(215,181,109,.18);
-  color: var(--gold-2);
-  border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 0.8rem;
+  
+
+
+ 
+
 
 
 .pill {
@@ -127,7 +150,7 @@ body {
     }
     .gallery-track {
       display: flex;
-      transition: transform .45s ease;
+      transition: transform .4s ease;
       will-change: transform;
     }
 
@@ -181,6 +204,31 @@ body {
     .card {
       padding: 24px;
     }
+
+
+.gallery {
+  touch-action: pan-y;
+}
+
+.gallery-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  user-select: none;
+}
+
+.slide img {
+  pointer-events: none; /* prevents drag glitch */
+}
+
+
+
+
+
     .guest-favorite {
       display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
       padding: 14px 16px;
@@ -446,12 +494,7 @@ body {
     }
 
 /* Ensure the container doesn't squeeze the boxes */
-.hero-copy {
-  width: 100%;
-  max-width: 1000px; 
-  margin: 0 auto;
-  text-align: center;
-}
+.hero-copy { max-width: 850px; margin: 0 auto; }
 
 /* Smaller, cleaner sub-text */
 .hero-copy p {
@@ -474,15 +517,12 @@ body {
   justify-content: center;
 }
 
-.hero {
-    position: relative;
-    /* Changed from a fixed height to a minimum height */
-    min-height: 80vh; 
-    display: flex;
-    align-items: center;
-    padding: 100px 0; /* Adds breathing room so text doesn't hit the edges */
-    overflow: hidden;
-}
+/* --- Hero Section --- */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
 
 .hero-inner {
     position: relative;
@@ -545,20 +585,21 @@ h1 {
       font-size: .85rem;
       border: 1px solid rgba(215,181,109,.2);
     }
-    .hero-stats {
-      margin-top: 30px;
-      display: grid;
 
+.hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
+      margin-top: 50px;
     }
     .stat {
-      padding: 15px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,0.03);
       border: 1px solid var(--line);
+      padding: 20px;
+      border-radius: var(--radius-sm);
     }
-    .stat strong { display: block; font-size: 1.2rem; color: var(--gold); }
-    .stat span { font-size: 0.85rem; color: var(--muted); }
+    .stat strong { display: block; font-size: 1.5rem; color: var(--gold); }
+    .stat span { font-size: 0.8rem; color: var(--muted); }
 
     /* Booking Form */
     .booking-card {
@@ -816,48 +857,7 @@ h1 {
     </div>
 </div>
 
-<style>
-.brand-logo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-family: 'Inter', sans-serif; /* Keep consistency with your site */
-}
 
-.logo-icon svg {
-    width: 48px;
-    height: 48px;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-text .main-name {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: white;
-    letter-spacing: -1px; /* Tighter for a modern look */
-    line-height: 1;
-}
-
-.logo-text .category {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #d7b56d; /* Your gold accent color */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 2px;
-}
-
-.logo-text .slogan {
-    font-size: 0.75rem;
-    font-weight: 300;
-    color: var(--muted);
-    margin-top: 4px;
-}
-</style>
 
       <nav class="nav" aria-label="Primary">
         <a href="#gallery">Gallery</a>
@@ -1271,85 +1271,95 @@ section {
 
 
 
-  <script>
-    // Gallery Logic
-    const track = document.getElementById('track');
-    const slides = Array.from(track.children);
-    const dotsWrap = document.getElementById('dots');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    let current = 0;
+<script>
+const track = document.getElementById('track');
+const slides = Array.from(track.children);
+const dotsWrap = document.getElementById('dots');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
 
-    function renderDots() {
-      dotsWrap.innerHTML = '';
-      slides.forEach((_, index) => {
-        const b = document.createElement('button');
-        b.className = 'dot' + (index === current ? ' active' : '');
-        b.addEventListener('click', () => goTo(index));
-        dotsWrap.appendChild(b);
-      });
-    }
+let current = 0;
+let startX = 0;
+let isDragging = false;
+let autoSlide;
 
-    function goTo(index) {
-      current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      renderDots();
-    }
+// ✅ CREATE DOTS
+function renderDots() {
+  dotsWrap.innerHTML = '';
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (index === current ? ' active' : '');
+    dot.onclick = () => goTo(index);
+    dotsWrap.appendChild(dot);
+  });
+}
 
-    prev.addEventListener('click', () => goTo(current - 1));
-    next.addEventListener('click', () => goTo(current + 1));
-    // Simple Calendar Generator
-    const grid = document.getElementById('calendarGrid');
-    for(let i=1; i<=30; i++) {
-      const day = document.createElement('div');
-      day.className = 'calendar-day';
-      day.textContent = i;
-      day.onclick = function() {
-        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
-        this.classList.add('selected');
-      };
-      grid.appendChild(day);
-    }
-
-    // Sticky Bar Visibility
-    const stickyBar = document.getElementById('stickyBar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        stickyBar.classList.add('visible');
-      } else {
-        stickyBar.classList.remove('visible');
-      }
-    });
-
-document.addEventListener("DOMContentLoaded", () => {
+// ✅ MOVE SLIDE
+function goTo(index) {
+  current = (index + slides.length) % slides.length;
+  track.style.transform = `translateX(-${current * 100}%)`;
   renderDots();
+}
+
+// ✅ AUTO SLIDE
+function startAutoSlide() {
+  autoSlide = setInterval(() => {
+    goTo(current + 1);
+  }, 4000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+// ✅ BUTTONS
+prev.onclick = () => {
+  goTo(current - 1);
+  stopAutoSlide();
+  startAutoSlide();
+};
+
+next.onclick = () => {
+  goTo(current + 1);
+  stopAutoSlide();
+  startAutoSlide();
+};
+
+// ✅ TOUCH SWIPE (MOBILE)
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+  stopAutoSlide();
 });
 
-const slider = document.querySelector('.slider-track'); // Ensure this matches your class
-let isDown = false;
-let startX;
-let scrollLeft;
+track.addEventListener('touchmove', (e) => {
+  if (!isDragging) return;
+  const moveX = e.touches[0].clientX;
+  const diff = startX - moveX;
 
-// Touch Events for Mobile
-slider.addEventListener('touchstart', (e) => {
-    isDown = true;
-    startX = e.touches[0].pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
+  track.style.transform = `translateX(calc(-${current * 100}% - ${diff}px))`;
 });
 
-slider.addEventListener('touchend', () => {
-    isDown = false;
+track.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (diff > 50) {
+    goTo(current + 1); // swipe left
+  } else if (diff < -50) {
+    goTo(current - 1); // swipe right
+  } else {
+    goTo(current); // snap back
+  }
+
+  isDragging = false;
+  startAutoSlide();
 });
 
-slider.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed
-    slider.scrollLeft = scrollLeft - walk;
-});
-
-  </script>
+// ✅ INIT
+renderDots();
+startAutoSlide();
+</script>
 
    <a href="https://wa.me/639499900491" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
         <i class="fab fa-whatsapp text-3xl"></i>
