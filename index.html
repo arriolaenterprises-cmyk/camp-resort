@@ -36,53 +36,39 @@
   max-width: 800px;
 }
 
-h1, h2, h3 {
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 0.3px;
-}
-
-h2 {
-  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
+/* --- Typography --- */
+    h1, h2, h3 { font-family: Georgia, serif; letter-spacing: 0.3px; margin: 0; }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; margin-bottom: 20px; }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 15px; }
+    p { color: var(--muted); line-height: 1.6; font-size: 1rem; }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
+
+body {
       margin: 0;
-      background:
-        radial-gradient(circle at top, rgba(215,181,109,.11), transparent 35%),
-        linear-gradient(180deg, #060915 0%, var(--bg) 35%, #080b14 100%);
+      background: radial-gradient(circle at top, rgba(215,181,109,.11), transparent 35%),
+                  linear-gradient(180deg, #060915 0%, var(--bg) 35%, #080b14 100%);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding-bottom: 80px; /* Space for sticky bar */
+      font-family: 'Inter', system-ui, sans-serif;
+      padding-bottom: 100px; 
     }
+
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
     .wrap { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
 
+/* --- Header & Logo --- */
     .topbar {
-      position: sticky; top: 0; z-index: 50;
+      position: sticky; top: 0; z-index: 100;
       backdrop-filter: blur(16px);
-      background: rgba(7, 10, 19, .72);
+      background: rgba(7, 10, 19, .8);
       border-bottom: 1px solid var(--line);
     }
-    .topbar-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 0;
-      gap: 16px;
-    }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+
+
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
       width: 42px; height: 42px; border-radius: 14px;
@@ -409,6 +395,10 @@ p {
     .small { font-size: .9rem; color: #8d96aa; }
     .divider { height: 1px; background: var(--line); margin: 14px 0; }
 
+@media (min-width: 1440px) {
+  /* Desktop specific adjustments here */
+}
+
     @media (max-width: 980px) {
       .hero-grid, .grid-2, .steps, .offers, .know-grid, .testimonials, .footer-inner {
         grid-template-columns: 1fr;
@@ -451,7 +441,7 @@ p {
       position: absolute;
       inset: 0;
       background: linear-gradient(rgba(6,9,21,.4), rgba(6,9,21,.7)),
-        url('https://a0.muscache.com/im/pictures/miso/Hosting-1021308032742624947/original/99ee5298-0960-42dc-87f1-1d3d071bb901.jpeg') center/cover no-repeat;
+        url('images/hero_bg.avif') center/cover no-repeat;
       z-index: -1;
     }
 
@@ -782,6 +772,29 @@ h1 {
     }
 }
 
+
+.slider-track {
+    display: flex !important;
+    overflow-x: auto !important;   /* Enables the actual swiping */
+    scroll-snap-type: x mandatory; /* The magic: makes it snap to each image */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Smooth momentum for iPhones */
+    gap: 10px;
+    padding: 0 20px;               /* Adds a little peek of the next image */
+}
+
+.slide {
+    flex: 0 0 85%;                 /* Shows 85% of the image so they know to swipe */
+    scroll-snap-align: center;     /* Centers the image when you let go */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Hide the ugly scrollbar but keep the swiping active */
+.slider-track::-webkit-scrollbar {
+    display: none;
+}
+
   </style>
 </head>
 <body>
@@ -854,6 +867,7 @@ h1 {
         <a href="#book" class="pill">Book now</a>
       </nav>
     </div>
+
   </header>
 
   <main>
@@ -889,28 +903,26 @@ h1 {
         </div>
         <div class="gallery" aria-label="Photo gallery slider">
           <div class="gallery-track" id="track">
-
-            <div class="slide"><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-871412734935173328/original/1e154097-2d0d-42f8-af5f-4fb551b90af7.jpeg" alt="Cabin & Tent" /></div>
-<div class="slide"><img src="https://theoutdoorinsider.com/wp-content/uploads/2023/06/Winter-Camping-1024x683.webp" alt="Camping1" /></div>
-            <div class="slide"><img src="https://www.shutterstock.com/image-photo/tourist-relaxing-while-camping-sunrise-600nw-2320442971.jpg" alt="Camping2" /></div>
-            <div class="slide"><img src="https://i.ytimg.com/vi/IeBQd-rFWj8/maxresdefault.jpg" alt="Camping & Bonfire" /></div>
-            <div class="slide"><img src="https://media.glampinghub.com/CACHE/images/accommodations/05-glamping-a39a7733-908b-41c6-b1e7-0eac0ba7bf94-glamping-3e9d732a-d288-40ae-af8c-42fad082b0b8/0ae5f84a66b15be26f073ed679c2edc0.jpg" alt="Cabin & Tent" /></div>
-<div class="slide"><img src="https://www.corsurf.com/cdn/shop/articles/coastal_camping.png?v=1696370531" alt="outdoor relaxation at night" /></div>
-<div class="slide"><img src="https://preview.redd.it/milky-way-season-sharing-my-photos-motocamping-beside-a-v0-edopbqnee2ma1.jpg?width=3840&format=pjpg&auto=webp&s=2b7c221e7150ade6e9ee8e51507f23db8417b7ca" alt="Camping1" /></div>
-<div class="slide"><img src="https://scontent.fmnl30-3.fna.fbcdn.net/v/t39.30808-6/504871364_1168628748638063_1613440931758316270_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeG34P_J43FhI1i1xm0cQKthHrjADB3AIXweuMAMHcAhfBS7JHe6Vfaquq_-jGphygU&_nc_ohc=wao2cthReKEQ7kNvwHb5vTN&_nc_oc=AdpJyu9qgn_ROX8n-8cKKMPQH4RNUrf1EFvZKuxMdIbXKt-WbStARw6D0dRAxf921-Q&_nc_zt=23&_nc_ht=scontent.fmnl30-3.fna&_nc_gid=CEuNGC3ghmM5a785tUGUSA&_nc_ss=7a3a8&oh=00_Af3IPaXDrmZFBVqEQuV7JQCWq05XvDE2181D7ihkmonBXw&oe=69D66EF7" alt="Camping1" /></div>
-<div class="slide"><img src="https://preview.redd.it/milky-way-season-sharing-my-photos-motocamping-beside-a-v0-ang6ivnee2ma1.jpg?width=1080&crop=smart&auto=webp&s=5596048fc3a5841939680ad577848b6360a919f2" alt="Camping and cofee" /></div>
-<div class="slide"><img src="https://hikeandbackpack.com/wp-content/uploads/2022/12/people-4817872_1280-800x500.jpg" alt="Camping1" /></div>
-            <div class="slide"><img src="https://thegeekycamper.com/wp-content/uploads/2020/11/Choose-A-4-Season-Tent-scaled.jpg" alt="Camping 7" /></div>
-            <div class="slide"><img src="https://cdn.snowys.com.au/blog/wp-content/uploads/2023/11/Body-1-1.jpg" alt="Camping and fire" /></div>
-
-            <div class="slide"><img src="https://localtravelscom.wordpress.com/wp-content/uploads/2022/03/img_3003-1.jpg" alt="Cabin & Tent" /></div>
-            <div class="slide"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_1000/v1659023345/blog/ijghsgvve0ju2khw46mp.jpg" alt="Cabin & Tent" /></div>
-                          <div class="slide"><img src="https://img.freepik.com/premium-photo/nightfall-nook-camping-tent-photo_960396-20289.jpg" alt="Camping" /></div>
-          <div class="slide"><img src="https://a0.muscache.com/im/pictures/miso/Hosting-1110459659420897531/original/42772596-1c2e-4a9a-a80f-1aeaf90ea694.jpeg?im_w=720" alt="Cabin & Tent" /></div>
-            <div class="slide"><img src="https://img.freepik.com/premium-photo/highend-glamping-site-with-canvas-tents-wooden-deck-seating-areas-surrounded-by-green-grass-set_1130306-4020.jpg?w=2000" alt="Cabin & Tent" /></div>
-
-
-
+       
+           <div class="slide"><img src="images/camp1.webp" alt="Camping1" /></div>
+            <div class="slide"><img src="images/camp2.webp" alt="Camping2" /></div>
+            <div class="slide"><img src="images/camp3.jpg" alt="Camping & Bonfire" /></div>
+            <div class="slide"><img src="images/camp4.jpg" alt="Cabin & Tent" /></div>
+            <div class="slide"><img src="images/camp5.webp" alt="outdoor relaxation at night" /></div>
+            <div class="slide"><img src="images/camp6.webp" alt="Motocamping" /></div>
+            <div class="slide"><img src="images/camp7.jpg" alt="Camping1" /></div>
+            <div class="slide"><img src="images/camp8.webp" alt="me and coffee" /></div>
+            <div class="slide"><img src="images/camp9.jpg" alt="just the two of us" /></div>
+            <div class="slide"><img src="images/camp10.jpg" alt="relaxing time" /></div>
+            <div class="slide"><img src="images/camp11.jpg" alt="Group Camping" /></div>
+            <div class="slide"><img src="images/camp12.jpg" alt="Group Camping" /></div>
+            <div class="slide"><img src="images/camp13.avif" alt="bonfire & me" /></div>
+             <div class="slide"><img src="images/camp14.jpg" alt="Camping" /></div>
+           <div class="slide"><img src="images/camp15.avif" alt="cabin" /></div>
+            <div class="slide"><img src="images/camp16.png" alt="Cabin & me" /></div>
+            <div class="slide"><img src="images/coffeebar1.webp" alt="the view" /></div>
+      <div class="slide"><img src="images/2.jpg" alt="the view" /></div>
+            <div class="slide"><img src="images/coffeebar.webp" alt="coffee bar" /></div>
 
           </div>
           <div class="gallery-ui">
@@ -1013,38 +1025,38 @@ h1 {
           <div>
             <div class="pill">What this place offers</div>
             <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Designed for rest, adventure, and memorable moments</h2>
-            <p>Use this section to highlight the most desirable features in a scan-friendly format.</p>
           </div>
         </div>
+
         <div class="offers">
-          <div class="offer">
-            <img src="https://a0.muscache.com/im/pictures/dd8c9691-fe87-4f36-801a-688b0850368f.jpg?im_w=720" alt="Cabin">
-            <div class="offer-content">
-              <strong>Scenic cabin stay</strong>
+          <div class="offer"> <img src="images/camp18.avif" alt="Cabin"> <div class="offer-content"> <strong>Scenic cabin stay</strong>
               <span>Relaxing interior with a warm, upscale mountain-lodge feel.</span>
-            </div>
-          </div>
-          <div class="offer">
-            <img src="https://cdn.snowys.com.au/blog/wp-content/uploads/2023/11/Body-1-1.jpg" alt="Bonfire">
-            <div class="offer-content">
-              <strong>Bonfire nights</strong>
-              <span>Perfect for stories, snacks, and slow conversations.</span>
-            </div>
-          </div>
-          <div class="offer">     <img src="https://i.pinimg.com/736x/5a/e0/a7/5ae0a77a9ff3c6e771c90de929a97500.jpg" alt="Coffee">           <div class="offer-content">              <strong>Mini coffee bar</strong>              <span>Morning espresso before the activities start.</span>
-            </div>
-          </div>
+ </div></div>
+          <div class="offer">  <img src="images/camp19.jpg" alt="Bonfire"> <div class="offer-content"> <strong>Bonfire nights</strong>  <span>Perfect for stories, snacks, and slow conversations.</span>
+ </div> </div>
+          <div class="offer"><img src="images/camp20.jpg" alt="Coffee"> <div class="offer-content"> <strong>Mini coffee bar</strong>              <span>Morning espresso before the activities start.</span>
+ </div></div>
+          <div class="offer"><img src="images/camp21.jpg"/><div class="offer-content">              <strong>Games corner</strong><span>Dart, billiards, pool, airsoft and hangout spots for every type of guest.</span>
+</div>       </div>
+          <div class="offer"><img src="images/camp22.webp"/><div class="offer-content">              <strong>Wall climbing</strong><span>For guests who want a little challenge and a lot of fun.</span>
+</div>       </div>
+          <div class="offer"><img src="images/camp23.jpg"/><div class="offer-content">              <strong>Waterfall swim</strong><span>Cool off in a refreshing natural setting that feels like a real escape.</span>
+</div>       </div>
+          <div class="offer"><img src="images/camp24.jpg"/><div class="offer-content">              <strong>Bike + zip line</strong><span>Add a thrill to the trip with outdoor features that keep the energy high.</span>
+</div>       </div>
+          <div class="offer"><img src="images/camp25.jpg"/><div class="offer-content">  <strong>Trekking trails</strong><span>Outdoor paths for guests who want movement, scenery, and fresh air.</span>
+ </div>      </div>
+           <div class="offer"><img src="images/horseback.webp"/><div class="offer-content">  <strong>Horse Back Riding</strong><span>“To ride a horse is to ride the sky.”</span>
+ </div>      </div>
+           <div class="offer"><img src="images/camp17.jpg"/><div class="offer-content">  <strong>Hammocks</strong><span>“Stay where the sky meets stillness”</span>
+ </div>      </div>
+           <div class="offer"><img src="images/mine1.avif"/><div class="offer-content">  <strong>Elegant & Inviting</strong><span>“A cabin stay surrounded by nature, blending rustic charm with the comfort of a lodge-inspired interior.”</span>
+ </div>      </div>
+           <div class="offer"><img src="images/daad5.png"/><div class="offer-content">  <strong>Between palms and sky</strong><span>“Cabins or tents, framed by palms and mountain views—your retreat to cool air and quiet moments.”</span>
+ </div>      </div>
 
 
-          <div class="offer"><img src="https://images.saymedia-content.com/.image/t_share/MTc0NDYxMTM1ODkzMTEyMTY4/dart-games.jpg"/><div class="offer-content">              <strong>Games corner</strong><span>Dart, billiards, pool, and hangout spots for every type of guest.</span></div>       </div>
-          <div class="offer"><img src="https://tse2.mm.bing.net/th/id/OIP.EX9XEF-JJgiip87lNo6bswHaLM?pid=ImgDet&w=474&h=716&rs=1&o=7&rm=3"/><div class="offer-content">              <strong>Wall climbing</strong><span>For guests who want a little challenge and a lot of fun.</span></div>       </div>
-          <div class="offer"><img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_85/c_fill,w_680/v1606438807/blog/jm1omczfx0notmiogl8l.jpg"/><div class="offer-content">              <strong>Waterfall swim</strong><span>Cool off in a refreshing natural setting that feels like a real escape.</span></div>       </div>
-          <div class="offer"><img src="https://mautourco.com/wp-content/uploads/2023/09/Zipline-Bicycle-5-1920-x-1280.jpg"/><div class="offer-content">              <strong>Bike + zip line</strong><span>Add a thrill to the trip with outdoor features that keep the energy high.</span></div>       </div>
-<div class="offer"><img src="https://img.philkotse.com/2019/04/22/b7Fg1q9w/ilocos-roadtrip-kabigan-falls-ece2.jpg"/><div class="offer-content">  <strong>Trekking trails</strong><span>Outdoor paths for guests who want movement, scenery, and fresh air.</span>
-
-        </div>
-      </div>
-    </section>
+   </section>
 
 
     <section class="section" id="map">
@@ -1053,7 +1065,7 @@ h1 {
           <div>
             <div class="pill">Where you’ll be</div>
             <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">A private nature setting with easy access to adventure</h2>
-            <p>Use this map area to show the resort’s exact location, nearby landmarks, and travel convenience.</p>
+       
           </div>
         </div>
         <div class="mapbox">
@@ -1075,7 +1087,7 @@ h1 {
           <div>
             <div class="pill">Things to know</div>
             <h2 style="margin-top:10px; font-size: clamp(1.7rem, 3vw, 2.6rem);">Clear expectations, no surprises</h2>
-            <p>Keep this section concise so guests can confidently decide before they inquire.</p>
+  
           </div>
         </div>
         <div class="steps">
@@ -1313,11 +1325,36 @@ document.addEventListener("DOMContentLoaded", () => {
   renderDots();
 });
 
+const slider = document.querySelector('.slider-track'); // Ensure this matches your class
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Touch Events for Mobile
+slider.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener('touchend', () => {
+    isDown = false;
+});
+
+slider.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed
+    slider.scrollLeft = scrollLeft - walk;
+});
+
   </script>
 
    <a href="https://wa.me/639499900491" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 transition">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
+
 
 </body>
 </html>
